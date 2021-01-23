@@ -8,6 +8,7 @@
 	right: -40px;
 	border:none;
 	outline: none;
+	cursor: pointer;
 }
 .popup__close-icon:hover {
 	opacity: 0.6;

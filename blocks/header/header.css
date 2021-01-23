@@ -1,7 +1,18 @@
 @import url(./__logo/header__logo.css);
-@import url(./__line/header__line.css);
 .header {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+}
+.header::after {
+	margin-top: 41px;
+	content: "";
+	border: 1px solid #545454;
+	opacity: 0.7;
+	width: 100%;
+}
+@media (max-width: 560px) {
+	.header::after {
+		margin-top: 31px;
+	}
 }

@@ -6,12 +6,12 @@ let formClose = document.querySelector(".popup__close-icon")
 let nameProfile = document.querySelector(".profile__name")
 let jobProfile = document.querySelector(".profile__profession")
 function open () { 
-	formElement.classList.add("popup_popup_opened")
+	formElement.classList.add("popup_opened")
 	nameInput.value = (nameProfile.textContent)
 	jobInput.value = (jobProfile.textContent)
 }
 function close () {
-	formElement.classList.remove("popup_popup_opened")
+	formElement.classList.remove("popup_opened")
 }	
 
 function formSubmitHandler (evt) {

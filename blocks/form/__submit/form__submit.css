@@ -10,9 +10,10 @@
 	line-height: 22px;
 	text-align: center;
 	color: #FFFFFF;
-	margin: 48px auto 0 auto;
+	margin: 48px auto 37px auto;
 	outline: none;
 	border: none;
+	cursor: pointer;
 }
 .form__submit:hover {
 	opacity: 0.8;
@@ -23,5 +24,6 @@
 	font-size: 14px;
 	line-height: 17px;
 	margin-top: 45px;
+	margin-bottom: 25px;
 }
 }

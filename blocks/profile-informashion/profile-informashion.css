@@ -1,3 +1,4 @@
+@import url(./__button/profile-informashion__button.css);
 .profile-informashion {
 	display: flex;
 	flex-wrap: wrap;

@@ -24,7 +24,7 @@
 			<img class="profile__avatar" alt="Аватарка" src="image/profile/image.jpg">
 			<div class="profile__info">
 				<div class="profile__box">
-				<h2 class="profile__name">Жак-Ив Кусто</h2>
+				<h1 class="profile__name">Жак-Ив Кусто</h1>
 				
 				<button class="profile__bedit-button"></button> 
 			</div>
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-			<button class="add-button">
+			<button class="profile-informashion__button">
 				<img alt="Кнопка" src="image/profile/add-button.svg">
 				</button>
 			</section>
@@ -95,12 +95,10 @@
 						  	 <div class="popup__container"> 
 						  	 	<button class="popup__close-icon"></button><!-- На мобильной версий кнопка закрытия popup выглядет не полностья связанно с тем что в макете не нашел вектора нужного размера( там идут только под 36px) , оставил пока так !-->
 						  	 	<h2 class="popup__title">Редактировать профиль</h2>
-						  	 	<form class="form">
-						  	 		<input class="form__input form__input_name" type="text" name="name" value="Имя" maxlength="20" required>
-						  	 		<input class="form__input form__input_job" type="text" name="sfera" value="Проффесия" required maxlength="20">
+						  	 	<form class="form" name="popuup">
+						  	 		<input class="form__input form__input_name" type="text" name="name" value="Имя" required>
+						  	 		<input class="form__input form__input_job" type="text" name="sfera" value="Проффесия" required >
 						  	 		<button class="form__submit">Сохранить</button>
-						  	 		<!--<input type="submit" name="Сохранить" class="form__submit">. Сделано на случай если требуеться иммено через input делать отправку !-->
-
 						  	 	</form>
 						  	 </div>
 						  	 </div>

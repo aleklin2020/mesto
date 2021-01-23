@@ -12,6 +12,7 @@
 	color: #FFFFFF;
 	margin: 48px auto 0 auto;
 	outline: none;
+	border: none;
 }
 .form__submit:hover {
 	opacity: 0.8;

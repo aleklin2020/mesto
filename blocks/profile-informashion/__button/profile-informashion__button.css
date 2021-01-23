@@ -1,4 +1,4 @@
-.add-button {
+.profile-informashion__button {
 	background: inherit;
 	border: 2px solid #FFFFFF;
 	box-sizing: border-box;
@@ -12,22 +12,22 @@
 	outline: none;
 	cursor: pointer;
 }
-.add-button:hover {
+.profile-informashion__button:hover {
 	opacity: 0.6;
 }
 @media (max-width: 809px) {
-	.add-button {
+	.profile-informashion__button {
 		margin-left: 30px;
 		margin-top: 20px;
 	}
 }
 @media (max-width: 620px){
- .add-button {
+ .profile-informashion__button {
  	margin-left: 0px;
  	}
 }
 @media (max-width: 560px) {
-	.add-button {
+	.profile-informashion__button {
 	margin-top: 36px;
 	width: calc(100% - 40px);
 }

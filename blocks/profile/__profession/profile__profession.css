@@ -1,0 +1,22 @@
+.profile__profession {
+	margin: 0;
+	text-align: left;
+	font-family: "Inter", Arial, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: calc(14px + 4 * ((100vw - 320px) / (1280 - 320)));
+	line-height: 22px;
+	color: #FFFFFF;
+	margin-top: 16px;
+}
+@media (max-width: 620px){
+.profile__profession {
+	margin-top: 14px;
+	line-height: 17px;
+}
+}
+@media (max-width: 560px){
+ .profile__profession {
+	text-align: center;
+}
+}

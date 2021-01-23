@@ -1,0 +1,26 @@
+.profile__bedit-button {
+	background: url(../../../image/profile/EditButton.svg);
+	width: 24px;
+	height: 24px;
+	align-self: center;
+	margin-left: 16px;
+	border:none;
+	outline: none;
+	cursor: pointer;
+}
+.profile__bedit-button:hover {
+	opacity: 0.6;
+}
+
+@media (max-width: 620px){
+	 .profile__bedit-button {
+	 	align-self: center;
+	 }
+}
+@media (max-width: 560px) {
+	.profile__bedit-button {
+		background: url(../../../image/profile/Edit_Button_mobil.svg);
+		width: 18px;
+		height: 18px;
+	}
+}	

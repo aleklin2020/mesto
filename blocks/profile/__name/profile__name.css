@@ -1,4 +1,5 @@
 .profile__name {
+	max-width: 300px;
 	margin: 0;
 	font-family: "Inter", Arial, sans-serif;
 	font-style: normal;
@@ -8,9 +9,13 @@
 	align-self: flex-end;
 	color: #FFFFFF;
 	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 @media (max-width: 620px){
  .profile__name {
  	line-height: 33px;
+ 	max-width: 200px;
  }
  }

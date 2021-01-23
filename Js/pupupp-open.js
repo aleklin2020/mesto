@@ -18,7 +18,7 @@ function formSubmitHandler (evt) {
 	evt.preventDefault(); 
 	nameProfile.textContent = (nameInput.value)
 	jobProfile.textContent = (jobInput.value)
-	formElement.classList.remove("popup_popup_opened") 
+	formElement.classList.remove("popup_opened") 
 }
 formClose.addEventListener("click" , close);
 formOpen.addEventListener('click', open);

@@ -12,7 +12,7 @@
 	width: 100%;
 }
 @media (max-width: 560px) {
-	.header::after {
-		margin-top: 31px;
+.header::after {
+	margin-top: 31px;
 	}
 }

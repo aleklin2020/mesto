@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 560px) {
-	.form__input {
-		width: 238px;
+.form__input {
+	width: 238px;
 	}
 }	

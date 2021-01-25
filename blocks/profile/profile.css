@@ -9,12 +9,12 @@
 	flex-wrap: wrap;
 }
 @media (max-width: 809px) {
- 	 .profile {
+.profile {
  	justify-content: center;
  }
 }
 @media (max-width: 560px) {
- 	 .profile {
+.profile {
 	flex-direction: column;
 	align-items: center;
 	}

@@ -14,8 +14,8 @@
 	white-space: nowrap;
 }
 @media (max-width: 620px){
- .profile__name {
- 	line-height: 33px;
- 	max-width: 200px;
+.profile__name {
+	line-height: 33px;
+	max-width: 200px;
  }
  }

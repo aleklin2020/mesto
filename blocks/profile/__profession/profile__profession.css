@@ -20,7 +20,7 @@
 }
 }
 @media (max-width: 560px){
- .profile__profession {
+.profile__profession {
 	text-align: center;
 	max-width: 200px;
 }

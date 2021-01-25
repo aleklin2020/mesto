@@ -5,7 +5,7 @@
 	justify-content: space-between;
 }
 @media (max-width: 560px) {
-	.profile-informashion {
-		flex-direction: column;
+.profile-informashion {
+	flex-direction: column;
 	}
 }	

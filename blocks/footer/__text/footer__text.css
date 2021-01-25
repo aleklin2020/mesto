@@ -8,7 +8,7 @@
 	color: #545454;
 }
 @media (max-width: 560px) {
-	.footer__text {
-		margin-left: 19px;
+.footer__text {
+	margin-left: 19px;
 	}
 }	

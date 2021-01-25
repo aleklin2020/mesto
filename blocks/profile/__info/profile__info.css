@@ -4,14 +4,14 @@
 	justify-content: center;
 }
 @media (max-width: 620px){
-	 .profile__info {
-	 	margin-left: 20px;
-	 	justify-content: center;
+.profile__info {
+ 	margin-left: 20px;
+ 	justify-content: center;
  }
  }
- @media (max-width: 560px) {
-	.profile__info {
-		margin-left: 0;
-		justify-content: center;
+@media (max-width: 560px) {
+.profile__info {
+	margin-left: 0;
+	justify-content: center;
 	}
 }

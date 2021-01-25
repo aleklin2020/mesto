@@ -13,14 +13,14 @@
 }
 
 @media (max-width: 620px){
-	 .profile__bedit-button {
-	 	align-self: center;
+.profile__bedit-button {
+ 	align-self: center;
 	 }
 }
 @media (max-width: 560px) {
-	.profile__bedit-button {
-		background: url(../../../image/profile/Edit_Button_mobil.svg);
-		width: 18px;
-		height: 18px;
+.profile__bedit-button {
+	background: url(../../../image/profile/Edit_Button_mobil.svg);
+	width: 18px;
+	height: 18px;
 	}
 }	

@@ -8,10 +8,10 @@
 	color: #000000;
 }
 @media (max-width: 560px) {
-	.popup__title {
-		font-size: 18px;
-		line-height: 22px;
-		margin: 25px 0 75px 0;
+.popup__title {
+	font-size: 18px;
+	line-height: 22px;
+	margin: 25px 0 75px 0;
 
 	}
 }	

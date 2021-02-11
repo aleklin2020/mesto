@@ -1,0 +1,21 @@
+.elemenet__icon-delete {
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	background-image: url(../../../image/blocks/delete-bloks.svg);
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 20px;
+	outline: none;
+	border:none;
+	background-color: transparent;
+
+}
+.elemenet__icon-delete:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.popup_element {
+	display: block;
+}

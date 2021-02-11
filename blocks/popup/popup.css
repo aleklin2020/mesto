@@ -1,11 +1,17 @@
 @import url(./__container/popup__container.css);
 @import url(./__title/popup__title.css);
 @import url(./__close-icon/popup__close-icon.css);
+@import url(./__container-blocks/popup__container-blocks.css);
+@import url(./__image/popup__image.css);
+@import url(./__titles/popup__titles.css);
 
 .popup {
-	display: none;
-	position: absolute;
+	
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0, 0.5);
+	transition:opacity .5s, visibility 0.5s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
 }

@@ -18,3 +18,10 @@
 	height: 19px;
 	opacity: 1;
 }
+
+.element__vector-active {
+	background: url(../../../image/blocks/Union.svg);
+	width: 22px;
+	height: 19px;
+	opacity: 1;
+}

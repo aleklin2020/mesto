@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mesto Russia</title>
 	<link rel="stylesheet" type="text/css" href="pages/index.css">
+	
 </head>
 <body class="page">
 	<div class="content">
@@ -38,47 +39,7 @@
 			
 			<section class="elements">
 
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1088404-unsplash.jpg">
-					<h2 class="element__title">Карачаевск</h2>
-					<button class="element__vector-like" type="button"></button> 
-
-				</div>
-
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1556355-unsplash.png">
-					<h2 class="element__title">Гора Эльбрус</h2>
-					<button class="element__vector-like" type="button"></button>
-
-				</div>
-
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1404681-unsplash.png">
-					<h2 class="element__title">Домбай</h2>
-					<button class="element__vector-like" type="button"></button>
-
-				</div>
-
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1556355-unsplash.png">
-					<h2 class="element__title">Гора Эльбрус</h2>
-					<button class="element__vector-like" type="button"></button>
-
-				</div>
-
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1088404-unsplash.png">
-					<h2 class="element__title">Домбай</h2>
-					<button class="element__vector-like" type="button"></button>
-
-				</div>
-
-				<div class="element">
-					<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1088404-unsplash.jpg">
-					<h2 class="element__title">Карачаево-Чкалово</h2>
-					<button class="element__vector-like" type="button"></button>
-
-				</div>
+				
 				
 			</section>         
 
@@ -101,8 +62,43 @@
 				</form>
 			</div>
 		</div>
+
+			<div class="popup popup_element">
+
+			<div class="popup__container"> 
+				<button class="popup__close-icon" type="button"></button>
+				<h2 class="popup__title">Новое место</h2>
+				<form class="form" name="popuup">
+					<input class="form__input form__input_name" type="text" name="name" placeholder="Горный алтай" required>
+					<input class="form__input form__input_job" type="Link" name="link" placeholder="укажите ссылку" required >
+					<button class="form__submit" type="submit">Создать</button>
+				</form>
+			</div>
+		</div>
+
+			<div class="popup popup_open-blocks">
+			<div class="popup__container-blocks"> 
+			<button class="popup__close-icon" type="button"></button>
+			<img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
+			<h2 class="popup__titles">тест</h2>
+			</div>
+		</div>
 		
 	</div>
+
+				<template id="element">
+					<div class="element">
+									<button class="elemenet__icon-delete"></button>
+									<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1088404-unsplash.png">
+									<h2 class="element__title">Домбай</h2>
+									<button class="element__vector-like" type="button"></button>
+
+								</div>
+				</template>		
+				
+	
+		
 	<script src="Js/pupupp-open.js"></script>
+	<script> </script> <!-- Fix бага работы transition при загрузки  в chrome !-->
 </body>
 </html>

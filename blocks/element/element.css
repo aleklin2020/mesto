@@ -1,7 +1,9 @@
 @import url(./__image/element__image.css);
 @import url(./__title/element__title.css);
 @import url(./__vector-like/element__vector-like.css);
+@import url(./__icon-delete/element__icon-delete.css);
 .element {
+	position: relative;
 	border-radius: 10px;
 	display: flex;
 	flex-wrap: wrap;

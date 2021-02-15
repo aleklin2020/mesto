@@ -49,8 +49,15 @@ function submitProfileForm(evt) {
   evt.preventDefault()
   nameProfile.textContent = (nameInput.value)
   jobProfile.textContent = (jobInput.value)
-  PopupClose(profilePopup)
+  closePopup(profilePopup)
 } 
+
+// Добавление информаций из попап в профиль
+popUpEditButton.addEventListener('click', () => {
+	openPopup(profilePopup);
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
+})
 
 
 // оснавная функция добавление карточек
@@ -70,13 +77,13 @@ function getElement(item) {
   }) 
 // Удаления
   const removeButton = newElement.querySelector('.elemenet__icon-delete');
-  removeButton.addEventListener('click', CardDelete); 
+  removeButton.addEventListener('click', deleteCard); 
 
   const imageLink = document.querySelector('.popup__image')
   const titleLink = document.querySelector('.popup__titles')
 
   imgElement.addEventListener('click', () => {
-    PopupOpen(imgPopup)
+    openPopup(imgPopup)
     imageLink.src = imgElement.src
     titleLink.textContent = titleElement.textContent
   })
@@ -94,7 +101,7 @@ getiInitialCards();
 
 
 // Функция добавление карточек из попап
-function PhotoAdd(evt) {
+function addCard(evt) {
   evt.preventDefault()
 
   const inputTitle = imgName.value;
@@ -106,50 +113,44 @@ function PhotoAdd(evt) {
   formPhoto.reset()
 
 
-  PopupClose(newCardPopup)
+  closePopup(newCardPopup)
 
 } 
-
+popUpAddButton.addEventListener('click', () => openPopup(newCardPopup))
 
 // Функция удаления карточек
-function CardDelete(event) {
+function deleteCard(event) {
   const targetElement = event.target;
   const targetItem = targetElement.closest('.element');
   targetItem.remove();
 }
 // ______________Конец функция __________
 // Открытия попапов
-const PopupOpen = (popupElement) => {
+const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
 } 
-popUpAddButton.addEventListener('click', () => PopupOpen(newCardPopup))
-// Добавление информаций из попап в профиль
-popUpEditButton.addEventListener('click', () => {
-	PopupOpen(profilePopup);
-  nameInput.value = nameProfile.textContent;
-  jobInput.value = jobProfile.textContent;
-})
+
 
 
 
 // функция закрытия попап
 
-const PopupClose = (popupElement) => {
+const closePopup = (popupElement) => {
   popupElement.classList.remove('popup_opened')
 } 
 
-profileCloseButton.addEventListener("click", () => PopupClose(profilePopup))
+profileCloseButton.addEventListener("click", () => closePopup(profilePopup))
 
-photoCloseButton.addEventListener('click', () => PopupClose(newCardPopup))
+photoCloseButton.addEventListener('click', () => closePopup(newCardPopup))
 
-imgCloseButton.addEventListener('click', () => PopupClose(imgPopup))
+imgCloseButton.addEventListener('click', () => closePopup(imgPopup))
 // ___________________ Конец закрытия попапов ___________//
 
 
 
 // Отправка форм
 formElement.addEventListener('submit', submitProfileForm);
-formPhoto.addEventListener('submit', PhotoAdd);
+formPhoto.addEventListener('submit', addCard);
 
 
 

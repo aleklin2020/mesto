@@ -7,6 +7,7 @@
 	border:none;
 	outline: none;
 	cursor: pointer;
+	background-repeat: no-repeat;
 }
 .profile__bedit-button:hover {
 	opacity: 0.6;

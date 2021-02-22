@@ -8,3 +8,9 @@ color: #FF0000;
 margin-top: 5px;
 width: 358px;
 }
+
+@media (max-width: 560px) {
+	.form__input_visible {
+		max-width: 238px;
+	}
+}

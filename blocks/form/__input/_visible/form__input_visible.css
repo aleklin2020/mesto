@@ -1,0 +1,10 @@
+.form__input_visible {
+	font-family: "Inter", Arial, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 15px;
+color: #FF0000;
+margin-top: 5px;
+width: 358px;
+}

@@ -55,9 +55,15 @@
 			<div class="popup__container"> 
 				<button class="popup__close-icon" type="button"></button>
 				<h2 class="popup__title">Редактировать профиль</h2>
-				<form class="form" name="popuup">
-					<input class="form__input form__input_name" type="text" name="name" value="Имя" required>
-					<input class="form__input form__input_job" type="text" name="sfera" value="Проффесия" required >
+				<form class="form" name="popuup" novalidate>
+					<label class="form__label">
+					<input class="form__input form__input_name" id="name-input" type="text" name="name" placeholder="Имя" required minlength="2" maxlength="40">
+					<span class="form__input_visible name-input-error"></span>
+					</label>
+					<label class="form__label">
+					<input class="form__input form__input_job" id="job-input" type="text" name="sfera"  required minlength="2" maxlength="200" placeholder="О себе">
+					<span class="form__input_visible job-input-error"></span>
+					</label>
 					<button class="form__submit" type="submit">Сохранить</button>
 				</form>
 			</div>
@@ -68,9 +74,15 @@
 			<div class="popup__container"> 
 				<button class="popup__close-icon" type="button"></button>
 				<h2 class="popup__title">Новое место</h2>
-				<form class="form" name="popuup">
-					<input class="form__input form__input_name" type="text" name="name" placeholder="Горный алтай" required>
-					<input class="form__input form__input_job" type="Link" name="link" placeholder="укажите ссылку" required >
+				<form class="form" name="popuup" novalidate>
+					<label class="form__label">
+					<input class="form__input form__input_name form__input-active" id="name-input" type="text" name="name" placeholder="Название" required minlength="2" maxlength="30">
+					<span class="name-input-error"></span>
+				</label>
+				<label class="form__label">
+					<input class="form__input form__input_job form__input-active" id="link-input" type="url" name="link" placeholder="Ссылка на картинку" required >
+					<span class="form__input_visible link-input-error"></span>
+				</label>
 					<button class="form__submit" type="submit">Создать</button>
 				</form>
 			</div>
@@ -99,6 +111,7 @@
 	
 		
 	<script src="Js/pupupp-open.js"></script>
+	<script src="Js/validate.js"></script>
 	<script> </script> <!-- Fix бага работы transition при загрузки  в chrome !-->
 </body>
 </html>

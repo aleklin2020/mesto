@@ -1,5 +1,9 @@
 @import url(./__input/form__input.css);
 @import url(./__submit/form__submit.css);
+@import url(./__label/form__label.css);
+@import url(./__input/_visible/form__input_visible.css);
+@import url(./__input/_type_error/form__input_type_error.css);
+@import url(./__submit/_disabled/form__submit_disabled.css);
 .form {
 	display: flex;
 	flex-wrap: wrap;

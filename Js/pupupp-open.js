@@ -16,6 +16,7 @@ const imgName = newCardPopup.querySelector('.form__input_name');
 const imgLink = newCardPopup.querySelector('.form__input_job');
 const photoElement = document.querySelector('.elements');
 const imgTemplate = document.querySelector('#element');
+const popupes = Array.from(document.querySelectorAll('.popup'));
 const initialCards = [
   {
     name: 'Архыз',
@@ -128,6 +129,7 @@ function deleteCard(event) {
 // Открытия попапов
 const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
+  document.addEventListener("keydown" , keyEscape)
 } 
 
 
@@ -137,6 +139,7 @@ const openPopup = (popupElement) => {
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove('popup_opened')
+  document.removeEventListener('keydown', keyEscape);
 } 
 
 profileCloseButton.addEventListener("click", () => closePopup(profilePopup))
@@ -151,6 +154,24 @@ imgCloseButton.addEventListener('click', () => closePopup(imgPopup))
 // Отправка форм
 formElement.addEventListener('submit', submitProfileForm);
 formPhoto.addEventListener('submit', addCard);
+
+
+
+// Закрытие popup кликом на esc и mouse 
+
+
+popupes.forEach(popup => popup.addEventListener('mousedown', event => {
+  if (event.target === event.currentTarget) {
+    closePopup(popup);
+
+  }
+}));
+
+function keyEscape (evt) {
+	 if (evt.key === "Escape") {
+    closePopup(document.querySelector(".popup_opened"));
+  }
+}
 
 
 

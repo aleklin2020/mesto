@@ -44,8 +44,21 @@ const initialCards = [
   }
 ];
 
+// Функция передачи имени в попап редактирования профиля fix: изменил алгоритм работы. 
+function infoPopuppProfile() { 
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
+}
+infoPopuppProfile(profilePopup)
 
-// Функция передачи имени в попап редактирования профиля
+
+// Функция открытия попап редактирования профиля
+popUpEditButton.addEventListener('click', () => {
+	openPopup(profilePopup);
+  
+})
+
+// Добавление информаций из попап в профиль
 function submitProfileForm(evt) {
   evt.preventDefault()
   nameProfile.textContent = (nameInput.value)
@@ -53,12 +66,7 @@ function submitProfileForm(evt) {
   closePopup(profilePopup)
 } 
 
-// Добавление информаций из попап в профиль
-popUpEditButton.addEventListener('click', () => {
-	openPopup(profilePopup);
-  nameInput.value = nameProfile.textContent;
-  jobInput.value = jobProfile.textContent;
-})
+
 
 
 // оснавная функция добавление карточек
@@ -166,7 +174,7 @@ popupes.forEach(popup => popup.addEventListener('mousedown', event => {
 
   }
 }));
-
+// Закрытия кнопкой esc
 function keyEscape (evt) {
 	 if (evt.key === "Escape") {
     closePopup(document.querySelector(".popup_opened"));

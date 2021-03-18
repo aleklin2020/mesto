@@ -128,6 +128,10 @@ popupes.forEach((popup) => {
               if (event.target.classList.contains('popup__close-icon')) {
                 closePopup(popup)
               }
+              // Закрытие кликом вне popup
+               if (event.target === event.currentTarget) {
+               closePopup(popup);
+               }
           })
       })
  
@@ -137,12 +141,7 @@ popupes.forEach((popup) => {
 // Отправка форм
 formElement.addEventListener('submit', submitProfileForm);
 formPhoto.addEventListener('submit', addCard);
-// Закрытие popup кликом на esc и mouse 
-popupes.forEach(popup => popup.addEventListener('mousedown', event => {
-  if (event.target === event.currentTarget) {
-    closePopup(popup);
-  }
-}));
+
 // Закрытия кнопкой esc
 function keyEscape (evt) {
  if (evt.key === "Escape") {

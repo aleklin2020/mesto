@@ -1,14 +1,14 @@
-export class Validate {
-	constructor(enableValidation, formList) {
+export class FormValidator {
+	constructor(enableValidation, form) {
     this._formSelector =  enableValidation.formSelector
     this._inputSelector =  enableValidation.inputSelector
     this._submitButtonSelector = enableValidation.submitButtonSelector
     this._inactiveButtonClass = enableValidation.inactiveButtonClass
     this._inputErrorClass = enableValidation.inputErrorClass
     this._errorClass = enableValidation.errorClass
-    this._formList = formList
-    this._inputs = Array.from(this._formList.querySelectorAll(this._inputSelector));
-    this._errors = Array.from(this._formList.querySelectorAll(`#${this._inputErrorClass.id}-error`));
+    this._form = form
+    this._inputs = Array.from(this._form.querySelectorAll(this._inputSelector));
+    this._errors = Array.from(this._form.querySelectorAll(`#${this._inputErrorClass.id}-error`));
   } 
   //Блокировка кнопки отправки
   disabledSubmit () {
@@ -33,7 +33,7 @@ _hasInvalidInput () {
     // проверяем форму на валидность
     _formValidation (inputElement) {
       this._inputElement = inputElement
-      this._errorElement = this._formList.querySelector(`.${this._inputElement.id}-error`);
+      this._errorElement = this._form.querySelector(`.${this._inputElement.id}-error`);
       if (!this._inputElement.validity.valid) {
         this._showInputError()
       }else {
@@ -53,7 +53,7 @@ _hideInputError () {
  this._errorElement.textContent = "";
 }
 _setEventListeners () {
-  this._buttonElement = this._formList.querySelector(this._submitButtonSelector)
+  this._buttonElement = this._form.querySelector(this._submitButtonSelector)
   this._toggleButtonState()
   this._inputs.forEach((inputElement) => {
     inputElement.addEventListener("input",() => {
@@ -65,7 +65,7 @@ _setEventListeners () {
 // Валидация формы
 checkInputValidity () {
   this._setEventListeners()
-  this._formList.addEventListener("submit", (evt) => {
+  this._form.addEventListener("submit", (evt) => {
     evt.preventDefault()
     this._toggleButtonState()
   })

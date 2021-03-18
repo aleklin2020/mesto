@@ -1,4 +1,4 @@
-import {Validate} from "./validate.js"
+import {FormValidator} from "./FormValidator.js"
 import {Card} from "./Card.js"
 const profilePopup = document.querySelector('.profile-popup'); // popup редактирование профиля
 const nameInput = document.querySelector('.form__input_name'); 
@@ -55,7 +55,9 @@ const initialCards = [
   link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
 }
 ];
-
+// Экземпляры валидаций форм
+const formProfileValid = new FormValidator(validationConfig,formElement )
+const formCardValid = new FormValidator(validationConfig,formPhoto)
 // Функция передачи имени в попап редактирования профиля 
 function infoPopuppProfile() { 
   nameInput.value = nameProfile.textContent;
@@ -66,7 +68,6 @@ infoPopuppProfile(profilePopup)
 popUpEditButton.addEventListener('click', () => {
   openPopup(profilePopup);
   // Валидация popup редактирования формы
-  const formProfileValid = new Validate(validationConfig,formElement )
   formProfileValid.checkInputValidity();
 })
 // Добавление информаций из попап в профиль
@@ -102,10 +103,10 @@ function openPopupFull (link , name) {
  imageLink.alt = link
  titleLink.textContent = name
 }
-// Открытие popup добавление card + валидация формы
+// Открытие popup добавление card
 popUpAddButton.addEventListener('click', () => {
   openPopup(newCardPopup)
-  const formCardValid = new Validate(validationConfig,formPhoto)
+  // Валдиация popup card
   formCardValid.checkInputValidity();
 })
 // Открытия попапов
@@ -118,11 +119,20 @@ const closePopup = (popupElement) => {
   popupElement.classList.remove('popup_opened')
   document.removeEventListener('keydown', keyEscape);
 } 
-profileCloseButton.addEventListener("click", () => closePopup(profilePopup))
+//Закрытие popup ALL
+popupes.forEach((popup) => {
+          popup.addEventListener('click', (event) => {
+              if (event.target.classList.contains('popup_opened')) {
+                  closePopup(popup)
+              }
+              if (event.target.classList.contains('popup__close-icon')) {
+                closePopup(popup)
+              }
+          })
+      })
+ 
 
-photoCloseButton.addEventListener('click', () => closePopup(newCardPopup))
 
-imgCloseButton.addEventListener('click', () => closePopup(imgPopup))
 // ___________________ Конец закрытия попапов ___________//
 // Отправка форм
 formElement.addEventListener('submit', submitProfileForm);

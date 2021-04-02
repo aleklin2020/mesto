@@ -7,13 +7,12 @@
 	<meta name="description" content="Mesto Russia">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mesto Russia</title>
-	<link rel="stylesheet" type="text/css" href="pages/index.css">
 	
 </head>
 <body class="page">
 	<div class="content">
 		<header class="header">
-			<img class="header__logo" alt="Maesto" src="image/header/Vector.svg">
+			<img class="header__logo" alt="Maesto" src="<%=require('./image/header/vector.svg')%>">
 
 		</header>
 
@@ -21,7 +20,7 @@
 
 			<section class="profile-informashion">
 				<div class="profile">
-					<img class="profile__avatar" alt="Аватарка" src="image/profile/image.jpg">
+					<img class="profile__avatar" alt="Аватарка" src="<%=require('./image/profile/image.jpg')%>">
 					<div class="profile__info">
 						<div class="profile__box">
 							<h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -33,7 +32,7 @@
 				</div>
 
 				<button class="profile-informashion__button" name="editing" type="button">
-					<img alt="Кнопка" src="image/profile/add-button.svg">
+					<img alt="Кнопка" src="<%=require('./image/profile/add-button.svg')%>">
 				</button>
 			</section>
 			
@@ -46,7 +45,7 @@
 		</main>
 
 		<footer class="footer">
-			<p class="footer__text">© 2020 Mesto Russia</p>
+			<p class="footer__text">© 2020 Alex Lin</p>
 		</footer>
 
 
@@ -110,7 +109,7 @@
 				
 	
 
-	 <script type="module" src="Js/index.js"></script>
+	
 	
 	<script> </script> <!-- Fix бага работы transition при загрузки  в chrome !-->
 </body>

@@ -15,12 +15,14 @@ export class Card {
 	}
 	generateCards () {
 		this._element = this._getElementTemplate()
+		this._likeClick = this._element.querySelector(".element__vector-like")
 		this._imgElement = this._element.querySelector('.element__image')
 		this._titleElement = this._element.querySelector('.element__title')
 		this._titleElement.textContent = this._name
 		this._imgElement.src = this._link
 		this._imgElement.alt = this._link
-		this._element.querySelector(".element__vector-like").addEventListener("click", this._likeButton )
+		this._likeClick.addEventListener("click", this._likeButton)
+		
 		this._setEventListeners()
 		return this._element;
 	}
@@ -35,5 +37,4 @@ export class Card {
 	_likeButton = () =>  {
 		this._element.querySelector(".element__vector-like").classList.toggle('element__vector-active');
 	}
-	
 }

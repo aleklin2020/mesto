@@ -72,9 +72,9 @@ checkInputValidity () {
 }
 // Валидация попап при открытий 
 clearValid () {
-    this._inputs.forEach((form) => {
+     this._inputs.forEach((form) => {
       this._formValidation (form)
-    });
+    }); 
     this._toggleButtonState()
   }
 

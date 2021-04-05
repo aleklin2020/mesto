@@ -10,9 +10,9 @@ export default class UserInfo {
             info: this._usetInfo.textContent
         }   
     }
-	setUserInfo (name , info) {
+	setUserInfo ({name, sfera}) {
 		this._userName.textContent = name;
-    this._usetInfo.textContent = info;
+    this._usetInfo.textContent = sfera;
 	}
 
 }

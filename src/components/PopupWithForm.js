@@ -7,15 +7,19 @@ export class PopupWithForm extends Popup {
 		this._closeIcon = popup.querySelector("popup__close-icon");
 	}
 	_getInputValues () {	
-			this.name = this._form.querySelector(".form__input_name").value
-			this.info = this._form.querySelector(".form__input_job").value	
-			return [this.name, this.info]
+			this._popupForm = this._form.querySelectorAll('.form__input')
+    		this._inputValues = {};
+   		 this._popupForm.forEach(input => {
+      	this._inputValues[input.name] = input.value
+   		 })
+   		 return this._inputValues;
 	}
 	setEventListeners () {
 		super.setEventListeners()
 		 this._form.addEventListener("submit", (evt) => { 
 		 	evt.preventDefault()
 		 	this._submit(this._getInputValues())
+		 	this.close()
 		 	 }) 
 	}
 	close () {

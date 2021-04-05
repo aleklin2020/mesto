@@ -37,21 +37,15 @@ import "./index.css"
 const formProfileValid = new FormValidator(validationConfig,formElement )
 formProfileValid.checkInputValidity()
 const formCardValid = new FormValidator(validationConfig,formPhoto)
-formCardValid.checkInputValidity();
+ 
 const popupWithImage = new PopupWithImage(imgPopup)
 popupWithImage.setEventListeners()
 const userinfo = new UserInfo (nameProfile, jobProfile)
 // Новый код редактирования профиля
 // Функция передачи имени в попап редактирования профиля 
-const profilePopupEdit = new PopupWithForm(profilePopup, popupEdit);
+const profilePopupEdit = new PopupWithForm(profilePopup, (info) => userinfo.setUserInfo(info));
 profilePopupEdit.setEventListeners()
 
-function popupEdit(name) {
-   const nameProfileInput = name[0];
-   const infoProfileInput = name[1];
-  userinfo.setUserInfo(nameProfileInput, infoProfileInput)
-  profilePopupEdit.close()
-} 
   popUpEditButton.addEventListener("click", () => {
       const author = userinfo.getUserInfo()
       // Вставка значений в попап
@@ -67,7 +61,9 @@ photoPopupAdd.setEventListeners()
 popUpAddButton.addEventListener('click', () => {
   photoPopupAdd.open()
   // Валдиация popup card
-  formCardValid.clearValid()
+  formCardValid.checkInputValidity();
+formCardValid.clearValid()
+
 })
 const cardList = new Section({
   items: initialCards,
@@ -77,7 +73,6 @@ const cardList = new Section({
   }
 }, photoElSelector); // Отрисовка карточек при загрузке страницы
 cardList.render();
-
 // добавление фото
 function submitPhotoAdd() {
   const inputTitle = imgName.value;
@@ -96,3 +91,4 @@ function createCard(item) {
   const newUserCard = newCard.generateCards();
   return newUserCard;
 }
+

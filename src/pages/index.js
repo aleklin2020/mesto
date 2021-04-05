@@ -35,9 +35,9 @@ import {
 import "./index.css"
 // Экземпляры валидаций форм
 const formProfileValid = new FormValidator(validationConfig,formElement )
-formProfileValid.checkInputValidity()
+
 const formCardValid = new FormValidator(validationConfig,formPhoto)
- 
+ formCardValid.checkInputValidity();
 const popupWithImage = new PopupWithImage(imgPopup)
 popupWithImage.setEventListeners()
 const userinfo = new UserInfo (nameProfile, jobProfile)
@@ -61,7 +61,7 @@ photoPopupAdd.setEventListeners()
 popUpAddButton.addEventListener('click', () => {
   photoPopupAdd.open()
   // Валдиация popup card
-  formCardValid.checkInputValidity();
+
 formCardValid.clearValid()
 
 })
@@ -91,4 +91,4 @@ function createCard(item) {
   const newUserCard = newCard.generateCards();
   return newUserCard;
 }
-
+formProfileValid.checkInputValidity()

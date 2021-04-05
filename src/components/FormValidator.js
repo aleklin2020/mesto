@@ -30,16 +30,6 @@ _hasInvalidInput () {
     return !inputElement.validity.valid
   })
 }
-    // проверяем форму на валидность
-    _formValidation (inputElement) {
-      this._inputElement = inputElement
-      this._errorElement = this._form.querySelector(`.${this._inputElement.id}-error`);
-      if (!this._inputElement.validity.valid) {
-        this._showInputError()
-      }else {
-        this._hideInputError()
-      }
-    }
 // Добавление ошибки к невалидному полю
 _showInputError () {
  this._inputElement.classList.add(this._inputErrorClass);
@@ -47,11 +37,22 @@ _showInputError () {
  this._errorElement.textContent = this._inputElement.validationMessage;
 }
 // снятие ошибки с валидного поля
-_hideInputError () {
- this._inputElement.classList.remove(this._inputErrorClass);
+_hideInputError (inputElement) {
+  this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+ inputElement.classList.remove(this._inputErrorClass);
  this._errorElement.classList.remove(this._errorClass);
  this._errorElement.textContent = "";
 }
+    // проверяем форму на валидность
+    _formValidation (inputElement) {
+      this._inputElement = inputElement
+      this._errorElement = this._form.querySelector(`.${this._inputElement.id}-error`);
+      if (!this._inputElement.validity.valid) {
+        this._showInputError()
+      }else {
+        this._hideInputError(inputElement)
+      }
+    }
 _setEventListeners () {
   this._buttonElement = this._form.querySelector(this._submitButtonSelector)
   this._toggleButtonState()
@@ -73,9 +74,8 @@ checkInputValidity () {
 // Валидация попап при открытий 
 clearValid () {
      this._inputs.forEach((form) => {
-      this._formValidation (form)
+      this._hideInputError(form)
     }); 
     this._toggleButtonState()
   }
-
 }

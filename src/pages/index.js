@@ -162,7 +162,7 @@ function createCard(item) {
             })
         }
     }, {
-        deleteLike: (cardId, likeText, like) => {
+        deleteLike: (Id, likeText, like) => {
             api.deleteLike(Id)
             .then(data => {
                 likeText.textContent = data.likes.length; 

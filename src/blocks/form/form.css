@@ -4,7 +4,7 @@
 @import url(./__input/_visible/form__input_visible.css);
 @import url(./__input/_type_error/form__input_type_error.css);
 @import url(./__submit/_disabled/form__submit_disabled.css);
-@import url(./__submit/_delete/form_submit_delete.css);
+@import url(./__submit-delete/form__submit-delete.css);
 .form {
 	display: flex;
 	flex-wrap: wrap;

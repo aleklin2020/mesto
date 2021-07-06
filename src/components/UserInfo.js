@@ -1,4 +1,3 @@
-
 export default class UserInfo {
 	constructor(name, info) {
 		this._userName = name;
@@ -13,6 +12,11 @@ export default class UserInfo {
 	setUserInfo ({name, sfera}) {
 		this._userName.textContent = name;
     this._usetInfo.textContent = sfera;
+	}
+	setAvatar (linkAvatar) {
+		this._userName.src = linkAvatar;
+		this._userName.alt = linkAvatar;
+
 	}
 
 }

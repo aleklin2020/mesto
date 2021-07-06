@@ -19,7 +19,12 @@ const imgTemplate = document.querySelector('#element');
 const popupes = Array.from(document.querySelectorAll('.popup'));
 const imageLink = document.querySelector('.popup__image')
 const titleLink = document.querySelector('.popup__titles')
+const profileAvatar = document.querySelector(".profile__avatar")
+const profileAvatarButton = document.querySelector(".profile__avatar-button")
+const avatarPopup = document.querySelector(".popup_avatar")
+const likeText = document.querySelector(".element__like")
 const photoElSelector = '.elements'
+const popupDelete = document.querySelector(".popup_delete")
 const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -55,6 +60,13 @@ const initialCards = [
 }
 ];
 
+const options = {
+    link: 'cohort-25',
+    token: {
+        authorization: 'e46362ce-1599-486f-9051-b9d59ed9a09d',
+        'Content-Type': 'application/json',
+    },
+}
 
 export {
   profilePopup,
@@ -80,6 +92,12 @@ export {
   titleLink,
   photoElSelector,
   validationConfig,
-  initialCards
+  initialCards,
+  options,
+  profileAvatar,
+  profileAvatarButton,
+  avatarPopup,
+  likeText,
+  popupDelete
 }
 

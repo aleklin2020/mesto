@@ -20,7 +20,11 @@
 
 			<section class="profile-informashion">
 				<div class="profile">
+					<div class="profile-page">
+					<button class="profile__avatar-button">
 					<img class="profile__avatar" alt="Аватарка" src="<%=require('./image/profile/image.jpg')%>">
+					</button>
+				</div>
 					<div class="profile__info">
 						<div class="profile__box">
 							<h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -87,6 +91,34 @@
 			</div>
 		</div>
 
+
+		<div class="popup popup_avatar">
+
+			<div class="popup__container"> 
+				<button class="popup__close-icon" type="button"></button>
+				<h2 class="popup__title">Обновить аватар</h2>
+				<form class="form" name="popuup" novalidate>
+				<label class="form__label">
+					<input class="form__input form__input_job form__input-active" id="form-link-input" type="url" name="linkAvatar" placeholder="Ссылка на картинку" required >
+					<span class="form-link-input-error"></span>
+				</label>
+					<button class="form__submit" type="submit">Сохранить</button>
+				</form>
+			</div>
+		</div>
+
+
+		<div class="popup popup_delete">
+
+			<div class="popup__container"> 
+				<button class="popup__close-icon" type="button"></button>
+				<h2 class="popup__title">Вы уверены ?</h2>
+				
+					<button class="form__submit form__submit_delete" type="submit">Да</button>
+				
+			</div>
+		</div>
+
 			<div class="popup popup_open-blocks">
 			<div class="popup__container-blocks"> 
 			<button class="popup__close-icon" type="button"></button>
@@ -102,7 +134,10 @@
 									<button class="elemenet__icon-delete"></button>
 									<img class="element__image" alt="город" src="image/blocks/kirill-pershin-1088404-unsplash.png">
 									<h2 class="element__title">Домбай</h2>
+									<div class="element__likes">
 									<button class="element__vector-like" type="button"></button>
+									<p class="element__like">1</p>
+									</div>
 
 								</div>
 				</template>		

@@ -41,8 +41,6 @@ export class Card {
 		this._setEventListeners()
 		return this._element;
 	}
-
-
 	// новый код тест 
 	  _placeElementPicture(place) {
       return place.querySelector('.element__image');
@@ -61,15 +59,6 @@ export class Card {
     }
 
 	_setEventListeners () {
-	/*	this._element.querySelector(".elemenet__icon-delete").addEventListener("click", () => { this._pushLike(); } )
-		//this._element.querySelector(".elemenet__icon-delete").addEventListener("click", this._deleteCard )
-		this._imgElement.addEventListener("click", () => this._handleCardClick(this._name, this._link))
-		  if (this._userId === this._cardCreatorId) {
-        this._deleteButton(this._element).addEventListener('click', () => {
-          this._deleteCard(this._cardId, this._element);
-        });
-    }
-    else {this._deleteButton(this._element).remove()} */
     	  this._elementLike(this._element).addEventListener('click', () => { this._pushLike(); }); 
       this._placeElementPicture(this._element).addEventListener('click', () => { this._openPicture();});
       if (this._userId === this._cardCreatorId) {
@@ -83,12 +72,6 @@ export class Card {
 		
 	} 
 
-	/*likeCard() {
-		  return this._countLikes.some(like => {
-      return like._id === this._userID
-    })
-	}*/
-// обработка лаиков добавление/уберание
  _pushLike() {
       if (this._elementLike(this._element).classList.contains('element__vector-active')) {
         this._deleteLike(this._cardId, this._likeСounterElement(this._element), this._elementLike(this._element))

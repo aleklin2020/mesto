@@ -35,8 +35,9 @@ import {
   initialCards,
   options,
   profileAvatar,
-  profileAvatarButton,
   avatarPopup,
+  formAvatar,
+  profileAvatarButton,
   likeText,
   popupDelete
 } from "../utils/variables.js"
@@ -45,27 +46,29 @@ import "./index.css"
 // const Id = "9c0dbb72d80d42e884c384e73fd8a43f";
 // Экземпляры валидаций форм
 const formAvatarValid = new FormValidator(validationConfig,avatarPopup )
-formAvatarValid.checkInputValidity()
-const formProfileValid = new FormValidator(validationConfig,formElement )
+formAvatarValid.checkInputValidity(); 
+const formProfileValid = new FormValidator(validationConfig,formElement)
 formProfileValid.checkInputValidity()
 const formCardValid = new FormValidator(validationConfig,formPhoto)
  formCardValid.checkInputValidity();
+
 const popupWithImage = new PopupWithImage(imgPopup)
-popupWithImage.setEventListeners()
+popupWithImage.setEventListeners(); 
 const userinfo = new UserInfo (nameProfile, jobProfile)
 // Новый код редактирования профиля
 // обновление фотографий пользователя
 const userInfoAvatar = new UserInfo (profileAvatar)
 const newAvatar = new PopupWithForm( avatarPopup, (info) => {
   api.getAvatarProfile(info)
-  
   .finally (() => {
     userInfoAvatar.setAvatar(info.linkAvatar)
   })
 })
 newAvatar.setEventListeners()
-
-profileAvatarButton.addEventListener("click", () =>  newAvatar.open() )
+profileAvatarButton.addEventListener("click", () =>  {
+  newAvatar.open() 
+  formAvatarValid.clearValid()
+})
 
 
 let Id;
@@ -78,10 +81,6 @@ api.getUserInform().then((profile => {
   profileAvatar.src = profile.avatar; 
   profileAvatar.alt = profile.avatar;
 })) 
-
-
-
-
 // Функция передачи имени в попап редактирования профиля 
 const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
   // Доработать редактирование информаций профиля
@@ -118,17 +117,12 @@ formCardValid.clearValid()
 api.getIntialCards().then((item) => {
   cardList.render(item)
 })
-
-
 const cardList = new Section({
   renderer: (cardItem) => {
     const newCard = createCard(cardItem)
     cardList.addItem(newCard);
   }
 }, photoElSelector); 
-
-
-
 //создание экземпляра popup с функционалом popupDelete
 const popupDeleteOpen = new PopupDelete(popupDelete, {
     deleteCardClick: (cardId, delElement) => {
@@ -140,10 +134,6 @@ const popupDeleteOpen = new PopupDelete(popupDelete, {
     }
 });
 popupDeleteOpen.setEventListeners();
-
-
-
- 
 function submitPhotoAdd() {
 
   const inputTitle = imgName.value;
@@ -190,4 +180,3 @@ function createCard(item) {
   const newUserCard = newCard.generateCards();
   return newUserCard;
 }
-

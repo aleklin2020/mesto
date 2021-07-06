@@ -22,6 +22,7 @@ const titleLink = document.querySelector('.popup__titles')
 const profileAvatar = document.querySelector(".profile__avatar")
 const profileAvatarButton = document.querySelector(".profile__avatar-button")
 const avatarPopup = document.querySelector(".popup_avatar")
+const formAvatar = avatarPopup.querySelector(".form")
 const likeText = document.querySelector(".element__like")
 const photoElSelector = '.elements'
 const popupDelete = document.querySelector(".popup_delete")
@@ -95,8 +96,9 @@ export {
   initialCards,
   options,
   profileAvatar,
-  profileAvatarButton,
   avatarPopup,
+  formAvatar,
+  profileAvatarButton,
   likeText,
   popupDelete
 }

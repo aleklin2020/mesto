@@ -3,7 +3,7 @@ import  Popup  from './Popup.js';
 export class PopupDelete extends Popup {
     constructor(popup, { deleteCardClick }) {
         super(popup);
-        this._deleteCardButton = this._popup.querySelector('.form__submit');
+        this._deleteCardButton = this._popup.querySelector('.popup__submit');
         this._deleteCardHandler = deleteCardClick;
         this._deleteClick = this._deleteClick.bind(this)
         }

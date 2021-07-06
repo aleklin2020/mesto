@@ -1,4 +1,4 @@
-.form__submit {
+.popup__submit {
 	width: 358px;
 	height: 50px;
 	background: #000000;
@@ -10,16 +10,16 @@
 	line-height: 22px;
 	text-align: center;
 	color: #FFFFFF;
-	margin: 48px auto 37px auto;
+	margin: 0px auto 36px auto;
 	outline: none;
 	border: none;
 	cursor: pointer;
 }
-.form__submit:hover {
+.popup__submit:hover {
 	background: rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 560px) {
-.form__submit {
+.popup__submit {
 	width: 238px;
 	font-size: 14px;
 	line-height: 17px;

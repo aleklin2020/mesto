@@ -4,6 +4,7 @@
 @import url(./__container-blocks/popup__container-blocks.css);
 @import url(./__image/popup__image.css);
 @import url(./__titles/popup__titles.css);
+@import url(./__submit/popup__submit.css);
 
 .popup {
 	

@@ -52,9 +52,22 @@ formProfileValid.checkInputValidity()
 const formCardValid = new FormValidator(validationConfig,formPhoto)
  formCardValid.checkInputValidity();
 
+
+
+
+
+
+
+
+// создаем попап открытой карточки full
 const popupWithImage = new PopupWithImage(imgPopup)
 popupWithImage.setEventListeners(); 
+
+
 const userinfo = new UserInfo (nameProfile, jobProfile)
+
+
+
 // Новый код редактирования профиля
 // обновление фотографий пользователя
 const userInfoAvatar = new UserInfo (profileAvatar)
@@ -71,19 +84,15 @@ profileAvatarButton.addEventListener("click", () =>  {
 })
 
 
-let Id;
-// получаем данные профиля с сервера
-const api = new Api(options)
-api.getUserInform().then((profile => {
-  Id = profile._id;
-  nameProfile.textContent = profile.name;
-  jobProfile.textContent = profile.about;
-  profileAvatar.src = profile.avatar; 
-  profileAvatar.alt = profile.avatar;
-})) 
+
+
+// тут был код 1
+
+
+
+
 // Функция передачи имени в попап редактирования профиля 
 const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
-  // Доработать редактирование информаций профиля
   api.setUserInform(info.name, info.sfera)
   .finally(() => {
     userinfo.setUserInfo(info)
@@ -91,7 +100,6 @@ const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
 });
 profilePopupEdit.setEventListeners()
 
-// Конец новой функций
   popUpEditButton.addEventListener("click", () => {
       const author = userinfo.getUserInfo()
       // Вставка значений в попап
@@ -112,41 +120,12 @@ formCardValid.clearValid()
 })
 
 
-// Добавление карточек с сервера 
+// тут второй код 
 
-api.getIntialCards().then((item) => {
-  cardList.render(item)
-})
-const cardList = new Section({
-  renderer: (cardItem) => {
-    const newCard = createCard(cardItem)
-    cardList.addItem(newCard);
-  }
-}, photoElSelector); 
-//создание экземпляра popup с функционалом popupDelete
-const popupDeleteOpen = new PopupDelete(popupDelete, {
-    deleteCardClick: (cardId, delElement) => {
-        api.deleteCard(cardId)
-        .then(data => {
-            delElement.remove();
-            popupDeleteOpen.close();        
-        })
-    }
-});
-popupDeleteOpen.setEventListeners();
-function submitPhotoAdd() {
 
-  const inputTitle = imgName.value;
-  const inputLink = imgLink.value;
-  api.photoAddServer(inputTitle, inputLink)
-  .finally (() => {
-    const photoItem = ({name: inputTitle, link: inputLink})
-  photoElement.prepend(createCard(photoItem))
-  })
-  
-  formPhoto.reset()
-  photoPopupAdd.close()
-}
+
+
+// создание новых карточек
 function createCard(item) {
   const newCard = new Card(item, imgTemplate, {
     openPopupFull: (name, link) => {
@@ -180,3 +159,65 @@ function createCard(item) {
   const newUserCard = newCard.generateCards();
   return newUserCard;
 }
+
+
+let Id;
+// получаем данные профиля с сервера
+const api = new Api(options)
+api.getUserInform().then((profile => {
+  Id = profile._id;
+  nameProfile.textContent = profile.name;
+  jobProfile.textContent = profile.about;
+  profileAvatar.src = profile.avatar; 
+  profileAvatar.alt = profile.avatar;
+})) 
+// Добавление карточек с сервера 
+
+api.getIntialCards().then((item) => {
+  cardList.render(item)
+})
+const cardList = new Section({
+  renderer: (cardItem) => {
+    const newCard = createCard(cardItem)
+    cardList.addItem(newCard);
+  }
+}, photoElSelector); 
+//создание экземпляра popup с функционалом popupDelete
+const popupDeleteOpen = new PopupDelete(popupDelete, {
+    deleteCardClick: (cardId, delElement) => {
+        api.deleteCard(cardId)
+        .then(data => {
+            delElement.remove();
+            popupDeleteOpen.close();        
+        })
+    }
+});
+popupDeleteOpen.setEventListeners();
+// добавление новой карточки на сервер
+function submitPhotoAdd() {
+
+  const inputTitle = imgName.value;
+  const inputLink = imgLink.value;
+  api.photoAddServer(inputTitle, inputLink)
+  .then(data => {
+  
+  photoElement.prepend(createCard(data))
+  })
+  
+  formPhoto.reset()
+  photoPopupAdd.close()
+}
+/* 
+function submitPhotoAdd() {
+
+  const inputTitle = imgName.value;
+  const inputLink = imgLink.value;
+  api.photoAddServer(inputTitle, inputLink)
+  .finally (() => {
+    const photoItem = ({name: inputTitle, link: inputLink})
+  photoElement.prepend(createCard(photoItem))
+  })
+  
+  formPhoto.reset()
+  photoPopupAdd.close()
+} */

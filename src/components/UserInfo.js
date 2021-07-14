@@ -1,22 +1,26 @@
-export default class UserInfo {
-	constructor(name, info) {
-		this._userName = name;
-		this._usetInfo = info;
-	}
-	getUserInfo () {
-         return {
-            name: this._userName.textContent,
-            info: this._usetInfo.textContent
-        }   
+export class UserInfo {
+    constructor(userName, userProfession, userAvatar) {
+      this._userName = userName;
+      this._userProfession = userProfession;
+      this._userAvatar = userAvatar;
     }
-	setUserInfo ({name, sfera}) {
-		this._userName.textContent = name;
-    this._usetInfo.textContent = sfera;
-	}
-	setAvatar (linkAvatar) {
-		this._userName.src = linkAvatar;
-		this._userName.alt = linkAvatar;
 
-	}
+    //публичный метод - возвращает объект с данными пользователя
+    getUserInfo() {
+      const userName = this._userName.textContent;
+      const userProfession = this._userProfession.textContent;
+      return {userName, userProfession};
+    }
 
-}
+    //публичный метод - принимает новые данные пользователя и добавляет их на страницу
+    setUserInfo(userName, userProfession) {
+      if(userName) { this._userName.textContent = userName; }
+      if(userProfession) { this._userProfession.textContent = userProfession; }
+    }
+
+    //публичный метод - принимает новый аватар пользователя и добавляет их на страницу
+    setAvatar(userAvatar) {
+      if(userAvatar) {this._userAvatar.src = userAvatar;}
+      if(userAvatar) {this._userAvatar.alt = userAvatar;}
+  }
+  }

@@ -62,7 +62,7 @@ const initialCards = [
 ];
 
 const options = {
-    link: 'cohort-25',
+    link: 'https://mesto.nomoreparties.co/v1/cohort-25',
     token: {
         authorization: 'e46362ce-1599-486f-9051-b9d59ed9a09d',
         'Content-Type': 'application/json',
@@ -102,4 +102,3 @@ export {
   likeText,
   popupDelete
 }
-

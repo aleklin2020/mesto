@@ -8,7 +8,7 @@ export class FormValidator {
     this._errorClass = validationConfig.errorClass
     this._form = form
     this._inputs = Array.from(this._form.querySelectorAll(this._inputSelector));
-    this._errors = Array.from(this._form.querySelectorAll(`#${this._inputErrorClass.id}-error`));
+    //this._errors = Array.from(this._form.querySelectorAll(`#${this._inputErrorClass.id}-error`));
   } 
   //Блокировка кнопки отправки
   disabledSubmit () {
@@ -64,11 +64,11 @@ _setEventListeners () {
   })
 }
 // Валидация формы
-checkInputValidity () {
+enabelValidation () {
   this._setEventListeners()
   this._form.addEventListener("submit", (evt) => {
     evt.preventDefault()
-    this._toggleButtonState()
+    //this._toggleButtonState()
   })
 }
 // Валидация попап при открытий 

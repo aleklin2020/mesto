@@ -63,7 +63,8 @@ const userData =  new UserInfo (
 const api = new Api(options)
 let Id;
 // обновление данных профиля с сервера
-const UserInfoPromise = new Promise((resolve, reject) => {
+
+/* => {
     api.getUserInform()
     .then(profile => {
         Id = profile._id;
@@ -75,10 +76,20 @@ const UserInfoPromise = new Promise((resolve, reject) => {
         console.log(err); 
         reject();
     });
-});
+});*/
+Promise.all([api.getUserInform(), api.getIntialCards()])
+  .then(([profile, initialCards]) => {
+        Id = profile._id;
+        userData.setUserInfo(profile.name, profile.about);
+        userData.setAvatar(profile.avatar);
+        cardList.render(initialCards)        
+  })
+  .catch((err) => {
+        console.log(err);
+    });
 
 // Добавление карточек с сервера 
-const Promises = [UserInfoPromise]
+/*const Promises = [UserInfoPromise]
 Promise.all(Promises)
   .then(() => {
     api.getIntialCards()
@@ -88,7 +99,7 @@ Promise.all(Promises)
     .catch((err) => {
         console.log(err); // выведем ошибку в консоль
     });  
-  });
+  });*/
   const cardList = new Section({
   renderer: (cardItem) => {
     const newCard = createCard(cardItem)
@@ -104,7 +115,7 @@ profileAvatarButton.addEventListener("click", () =>  {
 const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
   api.setUserInform(info.name, info.profession)
   .then(data => {
-    userData.setUserInfo(data.name , data.profession)
+    userData.setUserInfo(data.name, data.about)
     profilePopupEdit.close();
   })
     .catch((err) => {
@@ -137,32 +148,6 @@ popUpEditButton.addEventListener("click", () => openPopupText()) // дорабо
 // создаем попап открытой карточки full
 const popupWithImage = new PopupWithImage(imgPopup)
 popupWithImage.setEventListeners(); 
-
-
-/* 
-function submitPhotoAdd() {
-  const inputTitle = imgName.value;
-  const inputLink = imgLink.value;
-  api.photoAddServer(inputTitle, inputLink)
-  .then(data => {
-  photoElement.prepend(createCard(data))
-  })
-  photoPopupAdd.close()
-}
-
-const submitPhotoAdd = new PopupWithForm( avatarPopup, (info) => {
-  api.getAvatarProfile(info)
-  .then(data => {
-   userData.setAvatar(data.avatar)
-   newAvatar.close();
-
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-})
-*/
-
 // создание новых карточек
 function createCard(item) {
   const newCard = new Card(item, imgTemplate, {
@@ -177,6 +162,9 @@ function createCard(item) {
                 likeText.textContent = data.likes.length; 
                 like.classList.toggle("element__vector-active");
             })
+            .catch((err) => {
+    console.log(err);
+  })
         }
     }, {
         deleteLike: (Id, likeText, like) => {
@@ -185,6 +173,9 @@ function createCard(item) {
                 likeText.textContent = data.likes.length; 
                 like.classList.toggle('element__vector-active');
             })
+            .catch((err) => {
+    console.log(err);
+  })
            
         }
     }, {
@@ -203,6 +194,9 @@ const popupDeleteOpen = new PopupDelete(popupDelete, {
             delElement.remove();
             popupDeleteOpen.close();        
         })
+        .catch((err) => {
+    console.log(err);
+  })
     }
 });
 popupDeleteOpen.setEventListeners();
@@ -210,11 +204,12 @@ popupDeleteOpen.setEventListeners();
 const photoPopupAdd = new PopupWithForm(newCardPopup, (info) => {
   api.photoAddServer(info.name, info.link)
   .then(data => {
-  //photoElement.prepend(createCard(data))
   cardList.prependItem(createCard(data));
-  })
   photoPopupAdd.close()
-
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 });
 photoPopupAdd.setEventListeners()
 popUpAddButton.addEventListener('click', () => {

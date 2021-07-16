@@ -1,4 +1,3 @@
-import Popup from "./Popup.js"
 export class Card {
 	constructor(item, template, {openPopupFull}, Id, { addLike }, { deleteLike }, { deleteCardClick }) {
 		this._name = item.name 
@@ -80,32 +79,7 @@ export class Card {
         this._addLike(this._cardId, this._likeСounterElement(this._element), this._elementLike(this._element))
       }
     }
-
-
-
-
-
-
-
-
-
-
-
     _openPicture() {
       this._handleCardClick();
     }
 }
-
-	/*_deleteCard = () => {
-		this._element.remove();
-	}
-	_likeButton = () =>  {
-		this._likeСounterElement(this._element).textContent = this._likeСounter.length;
-		this._likeContains(this._userId)
-		//this._element.querySelector(".element__vector-like").classList.toggle('element__vector-active');
-	}
-
-	_likeContains() {
-		if()
-	}
-} */

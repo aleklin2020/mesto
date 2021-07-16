@@ -25,8 +25,7 @@ export class Api {
 			headers: this._headers,
 			 body: JSON.stringify({
                 name: name,
-                about: profession,
-             
+                about: profession
 		})
 		 })
 		.then((res) => {return this._checkResponse(res)}) 

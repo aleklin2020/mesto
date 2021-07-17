@@ -1,4 +1,18 @@
 import Popup from "./Popup.js";
+
+function renderLoading(isLoading) {
+    const newButtonName = document.querySelector('.form__save-avatar');
+    const staticContent = newButtonName.querySelector('.form__submit_loaded');
+    const processContent = newButtonName.querySelector('.form__submit_loading');
+    if(isLoading) {
+        staticContent.classList.add('popup__submit-hidden');
+        processContent.classList.add('popup__submit-active');
+    } else {
+        staticContent.classList.remove('popup__submit-hidden');
+        processContent.classList.remove('popup__submit-active');
+    }
+}
+
 export class PopupWithForm extends Popup {
 	constructor (popup, submit) {
 		super(popup) 
@@ -18,7 +32,6 @@ export class PopupWithForm extends Popup {
 		 this._form.addEventListener("submit", (evt) => { 
 		 	evt.preventDefault()
 		 	this._submit(this._getInputValues())
-		 	//this.close() дороботать в this
 		 	 }) 
 	}
 	close () {

@@ -51,9 +51,19 @@ const formProfileValid = new FormValidator(validationConfig,formElement)
 formProfileValid.enabelValidation()
 const formCardValid = new FormValidator(validationConfig,formPhoto)
  formCardValid.enabelValidation();
-
-
-
+// изменения кнопки сохранить 
+function renderLoading(isLoading) {
+    const newButtonName = document.querySelector('.popup_opened .form-save');
+    const staticContent = newButtonName.querySelector('.form__submit_loaded');
+    const processContent = newButtonName.querySelector('.form__submit_loading');
+    if(isLoading) {
+        staticContent.classList.add('popup__submit-hidden');
+        processContent.classList.add('popup__submit-active');
+    } else {
+        staticContent.classList.remove('popup__submit-hidden');
+        processContent.classList.remove('popup__submit-active');
+    }
+}
 const userData =  new UserInfo (
   nameProfile,
   jobProfile,
@@ -63,20 +73,6 @@ const userData =  new UserInfo (
 const api = new Api(options)
 let Id;
 // обновление данных профиля с сервера
-
-/* => {
-    api.getUserInform()
-    .then(profile => {
-        Id = profile._id;
-        userData.setUserInfo(profile.name, profile.about);
-        userData.setAvatar(profile.avatar);
-        resolve();
-    })
-    .catch((err) => {
-        console.log(err); 
-        reject();
-    });
-});*/
 Promise.all([api.getUserInform(), api.getIntialCards()])
   .then(([profile, initialCards]) => {
         Id = profile._id;
@@ -87,19 +83,6 @@ Promise.all([api.getUserInform(), api.getIntialCards()])
   .catch((err) => {
         console.log(err);
     });
-
-// Добавление карточек с сервера 
-/*const Promises = [UserInfoPromise]
-Promise.all(Promises)
-  .then(() => {
-    api.getIntialCards()
-    .then((item) => {
-  cardList.render(item)
-      })
-    .catch((err) => {
-        console.log(err); // выведем ошибку в консоль
-    });  
-  });*/
   const cardList = new Section({
   renderer: (cardItem) => {
     const newCard = createCard(cardItem)
@@ -113,10 +96,13 @@ profileAvatarButton.addEventListener("click", () =>  {
 })
 // Функция передачи имени в попап редактирования профиля 
 const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
+  renderLoading(true);
   api.setUserInform(info.name, info.profession)
   .then(data => {
     userData.setUserInfo(data.name, data.about)
+    renderLoading(false);
     profilePopupEdit.close();
+    
   })
     .catch((err) => {
     console.log(err);
@@ -125,11 +111,13 @@ const profilePopupEdit = new PopupWithForm(profilePopup, (info) => {
 profilePopupEdit.setEventListeners()
 // обновление аватара на сервере
 const newAvatar = new PopupWithForm( avatarPopup, (info) => {
+  renderLoading(true);
   api.getAvatarProfile(info)
   .then(data => {
+    
    userData.setAvatar(data.avatar)
+   renderLoading(false);
    newAvatar.close();
-
   })
   .catch((err) => {
     console.log(err);
@@ -217,3 +205,4 @@ popUpAddButton.addEventListener('click', () => {
   // Валдиация popup card
 formCardValid.clearValid()
 })
+

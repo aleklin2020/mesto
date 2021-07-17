@@ -190,9 +190,11 @@ const popupDeleteOpen = new PopupDelete(popupDelete, {
 popupDeleteOpen.setEventListeners();
 // добавление карточек из попап 
 const photoPopupAdd = new PopupWithForm(newCardPopup, (info) => {
+  renderLoading(true);
   api.photoAddServer(info.name, info.link)
   .then(data => {
   cardList.prependItem(createCard(data));
+  renderLoading(false);
   photoPopupAdd.close()
   })
   .catch((err) => {

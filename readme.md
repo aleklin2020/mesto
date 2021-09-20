@@ -2,7 +2,7 @@
  Advanced HTML and CSS and the initial javascript
 #
 
-[Link to working version of the project](https://aleklin2020.github.io/mesto/)
+
 
 
 ## Description
